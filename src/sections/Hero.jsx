@@ -105,7 +105,7 @@ export default function Hero() {
 
       {/* ── Main content (left column) ── */}
       <div className="hero-content-wrap" style={{
-        position: 'relative', zIndex: 2,
+        position: 'relative', zIndex: 10,
         flex: 1,
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
         paddingTop: 'calc(72px + clamp(2.5rem, 4vw, 4.5rem))',
@@ -139,7 +139,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.div variants={stagger} initial="hidden" animate="visible" style={{ marginBottom: '1.75rem' }}>
           {['SKATE', 'KARNATAKA'].map((word, wi) => (
-            <div key={word} style={{ overflow: 'hidden' }}>
+            <div key={word} style={{ overflow: 'hidden', width: 'max-content' }}>
               <motion.div variants={wordV} style={{
                 fontFamily: 'var(--font-head)', fontWeight: 900,
                 fontSize: 'clamp(3rem, 6.5vw, 6.5rem)',
@@ -147,6 +147,7 @@ export default function Hero() {
                 ...(wi === 1
                   ? { background: 'var(--grad-text-hero)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }
                   : { color: 'var(--clr-text)' }),
+                paddingRight: '0.1em', // Prevent minor clipping of gradient text
               }}>
                 {word}
               </motion.div>
